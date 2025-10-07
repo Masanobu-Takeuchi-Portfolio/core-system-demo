@@ -15,3 +15,9 @@
 ## ER 図
 
 ![ER図](ER.jpg)
+
+## URL
+
+- 開発環境（管理者）：http://localhost:8000/admin/
+- 開発環境（一般ユーザー）：http://localhost:8000/
+- phpMyAdmin:：http://localhost:8081/
