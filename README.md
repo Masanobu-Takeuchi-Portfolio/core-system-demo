@@ -8,8 +8,9 @@
 ## 設計書
 
 本システムの設計書を下記に記載。詳細はリンク先を参照。
-[要件定義書](https://www.notion.so/26a4392ee6488008b5f2f6b2a1c5be1d)
-[基本設計書（画面設計、機能設計）](https://www.notion.so/2724392ee648800b8625dc9c7e9b8aa9#2784392ee64880ad9af1fde2a0c45f36)
+
+- [要件定義書](https://www.notion.so/26a4392ee6488008b5f2f6b2a1c5be1d)
+- [基本設計書（画面設計、機能設計）](https://www.notion.so/2724392ee648800b8625dc9c7e9b8aa9#2784392ee64880ad9af1fde2a0c45f36)
 
 ## ER 図
 
