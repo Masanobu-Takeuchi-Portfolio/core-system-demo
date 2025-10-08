@@ -1,0 +1,74 @@
+# docker-composeのバージョン。最新では不要な項目らしい
+version: "3.9"
+
+services:
+  php:
+    # Apache/2.4.57 (Debian)がインストールされる
+    container_name: 8.2.10-apache-m3
+    platform: linux/amd64 #Mac M3
+    # PHPとアパッチはphp-apacheフォルダーのDockerから作成
+    build:
+      context: ./docker/php-apache
+      target: base
+    volumes:
+      - ./src:/var/www/html
+      # ローカルドメイン設定
+      - ./docker/php-apache/config/vhost.conf:/etc/apache2/conf-enabled/vhost.conf
+    ports:
+      - 8000:80
+      - 5173:5173 # フロントエンド・ビルド・ツールViteで使うポートを開放
+      #- 1025:1025
+    #command: export PATH=$HOME/.nodebrew/current/bin:$PATH
+    #entrypoint: >-
+    #    bash -c export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+  mysql-m3:
+    container_name: mysql8.1.0-m3
+    platform: linux/amd64 #Mac M3
+    image: mysql:8.1.0
+    ports:
+      - "3306:3306"
+    volumes:
+      # - /var/lib/mysql
+      # コンテナを作りなおしてもデータが消えないようにローカルのdb-dataフォルダにコンテナ内DBデータを保存する。
+      - ./db-data:/var/lib/mysql
+    environment:
+      # rootユーザーのパスワードを設定
+      - MYSQL_ROOT_PASSWORD=root
+      # コンテナ作成時にdbという名前のデータベースを作成
+      - MYSQL_DATABASE=db
+      # 任意のDBユーザーを追加
+      - MYSQL_USER=user
+      # 任意のDBユーザーのパスワードを設定
+      - MYSQL_PASSWORD=password
+      # タイムゾーンをUTCからJSTに変更
+      - TZ=Asia/Tokyo
+    # 念の為デフォルト文字コードやタイムゾーンの変更コマンドを実行。タイムゾーンは蒸気のTZ=Asia/Tokyoだけでも設定可能
+    command:
+      [
+        "mysqld",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_general_ci",
+        "--default-time-zone=+09:00",
+      ]
+
+  phpmyadmin-m3:
+    image: phpmyadmin
+    depends_on:
+      - mysql-m3
+    environment:
+      # サーバーをローカル以外にも指定できるようになって、ログイン画面にホスト入力画面が出現
+      - PMA_ARBITRARY=1
+      # 接続先のDBのサービス名を設定(今回はmysqlで設定)
+      - PMA_HOSTS=mysql-m3
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    ports:
+      - "8081:80"
+  # 手動でコンテナ立ち上げ後にLaravelプロジェクトのstorageフォルダに権限付与が必要。
+  # chmod 777 storage -R
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "8025:8025" # HTTPポート用（ブラウザからMailHog管理画面にアクセスする用）
+      - "1025:1025" # SMTPポート用
