@@ -16,12 +16,6 @@
 
 ![ER図](ER.jpg)
 
-## URL
-
-- 開発環境（管理者）：http://localhost:8000/admin/
-- 開発環境（一般ユーザー）：http://localhost:8000/
-- phpMyAdmin:：http://localhost:8081/
-
 ## 環境構築
 
 #### Docker ビルド
@@ -81,3 +75,28 @@
 - Laravel 9.52.21
 - MySQL 8.1.0
 - Apache 2.4.65
+
+## URL
+
+- 開発環境（管理者）：http://localhost:8000/admin/
+- 開発環境（一般ユーザー）：http://localhost:8000/
+- phpMyAdmin:：http://localhost:8081/
+
+## デモユーザー
+
+- 開発環境（管理者）：
+  ```bash
+  admin@example.co.jp
+  password
+  ```
+- 開発環境（一般ユーザー）：
+  ```bash
+  teset@example.co.jp
+  test
+  ```
+
+## 操作ガイド
+
+1. 一般ユーザーでログインし、勤怠、交通費、物品発注のいずれかを入力
+1. 管理者ユーザーでログインし、勤怠管理から一覧を表示
+1. 該当の勤怠詳細から勤怠データの確認と Excel 勤怠のダウンロード
