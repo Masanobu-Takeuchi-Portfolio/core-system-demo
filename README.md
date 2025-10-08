@@ -26,13 +26,6 @@
 
 #### Docker ビルド
 
-1. git から clone
-
-1. みかん
-1. バナナ
-
-### 環境構築
-
 1. git から clone する
 
    ```bash
@@ -47,7 +40,9 @@
 
    ```
 
-3. php コンテナに入ります
+#### Laravel 環境構築
+
+3. php コンテナに接続
 
    ```bash
    docker compose exec php bash
