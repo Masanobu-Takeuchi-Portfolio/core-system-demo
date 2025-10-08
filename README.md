@@ -21,3 +21,68 @@
 - 開発環境（管理者）：http://localhost:8000/admin/
 - 開発環境（一般ユーザー）：http://localhost:8000/
 - phpMyAdmin:：http://localhost:8081/
+
+## 環境構築
+
+#### Docker ビルド
+
+1. git から clone
+
+1. みかん
+1. バナナ
+
+### 環境構築
+
+1. git から clone する
+
+   ```bash
+   git clone git@github.com:estra-inc/confirmation-test-contact-form.git
+
+   ```
+
+2. ターミナル上でコンテナを起動
+
+   ```bash
+   docker compose up -d --build
+
+   ```
+
+3. php コンテナに入ります
+
+   ```bash
+   docker compose exec php bash
+
+   ```
+
+4. php コンテナ内で下記を実行
+
+   ```bash
+   composer install
+
+   ```
+
+5. php コンテナ内でアプリケーションキーの作成
+
+   ```bash
+   php artisan key:generate
+
+   ```
+
+6. マイグレーションの実行
+
+   ```bash
+   php artisan migrate
+
+   ```
+
+7. シーディングの実行
+   ```bash
+   php artisan db:seed
+   ```
+
+### 使用技術(実行環境)
+
+- PHP 8.2.10
+- Laravel 9.52.21
+- MySQL 8.1.0
+- Apache 2.4.65
