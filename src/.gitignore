@@ -1,0 +1,51 @@
+# ========================================
+# Laravel / PHP 基本
+# ========================================
+/vendor/
+/node_modules/
+composer.lock
+.env
+.phpunit.result.cache
+
+# ========================================
+# Laravel キャッシュ・ログ類
+# ========================================
+/storage/*.key
+/storage/app/*.json
+/storage/app/public/*
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*
+
+# ========================================
+# Laravel Mix / Vite / npm
+# ========================================
+/public/hot
+/public/storage
+/public/build
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# ========================================
+# IDE / エディタ関連
+# ========================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ========================================
+# Docker / DevContainer
+# ========================================
+docker-compose.override.yml
+/.devcontainer/*.log
+/.devcontainer/data/
+
+# ========================================
+# その他（任意追加）
+# ========================================
+/*.cache
+/.php-cs-fixer.cache
