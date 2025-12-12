@@ -18,7 +18,7 @@
 
 ## 環境構築
 
-#### 開発環境（Dev Container）起動手順
+#### 開発環境起動の方法 ①（Dev Container）
 
 本プロジェクトは VS Code Dev Containers を利用して、
 Docker 上に統一された開発環境を構築できます。
@@ -59,7 +59,7 @@ Docker 上に統一された開発環境を構築できます。
 
    を選択します。
 
-#### 開発環境（Docker ビルド）起動手順
+#### 開発環境起動の方法 ②（Docker ビルド）
 
 ##### ※Dev Container 利用の場合は不要
 
