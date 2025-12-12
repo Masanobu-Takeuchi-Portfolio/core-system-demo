@@ -11,7 +11,8 @@ services:
       context: ./docker/php-apache
       target: base
     volumes:
-      - ./src:/var/www/html
+      # - ./src:/var/www/html
+      - ./:/var/www/html
       # ローカルドメイン設定
       - ./docker/php-apache/config/vhost.conf:/etc/apache2/conf-enabled/vhost.conf
     ports:

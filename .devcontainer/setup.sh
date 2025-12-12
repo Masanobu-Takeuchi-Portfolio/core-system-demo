@@ -3,7 +3,7 @@
 # エラーが発生したら即座にスクリプトを終了
 set -eux
 
-cd /var/www/html
+cd /var/www/html/src
 
 echo "📦 Composer install running..."
 composer install
