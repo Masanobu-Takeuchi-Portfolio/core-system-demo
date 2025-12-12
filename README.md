@@ -19,41 +19,45 @@
 ## 環境構築
 
 #### 開発環境（Dev Container）起動手順
+
 本プロジェクトは VS Code Dev Containers を利用して、
 Docker 上に統一された開発環境を構築できます。
 
 ローカル環境に PHP・MySQL・Composer をインストールする必要はありません。
+
 1. git から clone する
+
    ```bash
    git clone git@github.com:estra-inc/confirmation-test-contact-form.git
 
    ```
 
 2. Docker Desktop を起動する
-必ず Docker Desktop を起動してから VS Code を開いてください。
+
+   必ず Docker Desktop を起動してから VS Code を開いてください。
 
 3. プロジェクトを VS Code で開く
+
    ```bash
    File → Open Folder → プロジェクトルートを選択
    ```
 
-4. Dev Container を起動する
-VS Code 左下の緑色アイコン（><）をクリックし、
+4. Dev Container を起動する  
+   VS Code 左下の緑色アイコン（><）をクリックし、
+
    ```bash
    Reopen in Container
    ```
+
    を選択します。
 
-   またはコマンドパレットで：
-      ```bash
-   Dev Containers: Reopen in Container
-   ```
-   VS Codeが日本語化されている場合は、
+   VS Code が日本語化されている場合は、
+
    ```bash
-   コンテナを再起動
+   コンテナーで再度開く
    ```
-   を選択します。
 
+   を選択します。
 
 #### 開発環境（Docker ビルド）起動手順
 
@@ -71,7 +75,7 @@ VS Code 左下の緑色アイコン（><）をクリックし、
 
    ```
 
-#### Laravel 環境構築
+#### Laravel 環境構築(Dev Container 利用の場合は不要)
 
 3. php コンテナに接続
 
