@@ -61,6 +61,8 @@ Docker 上に統一された開発環境を構築できます。
 
 #### 開発環境（Docker ビルド）起動手順
 
+##### ※Dev Container 利用の場合は不要
+
 1. git から clone する
 
    ```bash
@@ -75,7 +77,9 @@ Docker 上に統一された開発環境を構築できます。
 
    ```
 
-#### Laravel 環境構築(Dev Container 利用の場合は不要)
+#### Laravel 環境構築
+
+##### ※Dev Container 利用の場合は不要
 
 3. php コンテナに接続
 
