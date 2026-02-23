@@ -1,0 +1,23 @@
+{
+  "name": "Laravel DevContainer",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "php",
+  "workspaceFolder": "/var/www/html",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  // 初回ビルド時に setup.sh を自動実行
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "remoteUser": "root"
+}
