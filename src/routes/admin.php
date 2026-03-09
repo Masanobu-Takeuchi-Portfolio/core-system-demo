@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\FareController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\SpreadsheetController;
+use App\Http\Controllers\Admin\ScrapingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -161,4 +162,13 @@ Route::middleware('auth:admin')->group(function () {
     // 出勤簿ダウンロード
     Route::post('/{id}/download', [SpreadsheetController::class, 'download'])->name('job.download');
     //Route::get('/job/{year?}/{month?}', [JobController::class, 'index'])->name('job');
+
+    // スクレイピング
+    Route::prefix('scraping')
+        ->controller(ScrapingController::class)
+        ->name('scraping.')
+        ->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::post('/', 'execute')->name('execute');
+        });
 });

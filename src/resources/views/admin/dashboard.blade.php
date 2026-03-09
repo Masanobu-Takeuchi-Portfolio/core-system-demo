@@ -32,6 +32,11 @@
                             <span class="block group-active:[transform:translate3d(0,1px,0)]">物品発注管理</span>
                         </button>
                     </a></li>
+                    <li class="mb-2">スクレイピングは<a href="{{route('admin.scraping.index')}}" class="text-blue-500">コチラから
+                        <button class="group flex h-10 items-center justify-center rounded-md border border-indigo-600 bg-gradient-to-b from-indigo-400 via-indigo-500 to-indigo-600 px-4 text-neutral-50 shadow-[inset_0_1px_0px_0px_#a5b4fc] hover:from-indigo-600 hover:via-indigo-600 hover:to-indigo-600 active:[box-shadow:none]">
+                            <span class="block group-active:[transform:translate3d(0,1px,0)]">スクレイピング</span>
+                        </button>
+                    </a></li>
                 </ul>
             </div>
         </div>
