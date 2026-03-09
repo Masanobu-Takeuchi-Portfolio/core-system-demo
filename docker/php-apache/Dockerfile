@@ -71,6 +71,21 @@ RUN set -eux; \
       docker-php-ext-install -j$(nproc) gd zip; \
     rm -rf /var/lib/apt/lists/*
 
+# Node.jsのインストール（Puppeteerスクレイピング用）
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
+
+# Puppeteerに必要なChromiumの依存パッケージをインストール
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    chromium \
+    fonts-ipafont-gothic \
+    fonts-ipafont-mincho \
+    && rm -rf /var/lib/apt/lists/*
+
+# Puppeteerがシステムにインストール済みのChromiumを使用するよう設定
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+
 # Mailhogのためのmhsendmailインストール
 RUN curl -sSL https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 -o mhsendmail && \
   chmod +x mhsendmail && \

@@ -35,6 +35,10 @@
                         :active="request()->route()->named('admin.item*')">
                         {{ __('物品発注管理') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.scraping.index')"
+                        :active="request()->route()->named('admin.scraping*')">
+                        {{ __('スクレイピング') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -113,6 +117,10 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.dashboard')">
                 {{ __('物品発注管理') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.scraping.index')"
+                :active="request()->route()->named('admin.scraping*')">
+                {{ __('スクレイピング') }}
             </x-responsive-nav-link>
         </div>
 
